@@ -4,15 +4,24 @@ import argparse
 import os
 
 def main(inputString):
-    # Write the code to count the number of words here
-    # Remember to save the dictionary as a json file named "word-counts.json"
+    words = inputString.split()
 
+    quantities = {}
 
-    return None
+    for word in words:
+        word = word.strip(string.punctuation).lower()
+        if word in quantities:
+            quantities[word] += 1
+        else:
+            quantities[word] = 1
+
+    with open("word-counts.json", "w") as json_file:
+        json.dump(quantities, json_file)
+
+    return "word-counts.json"
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Word Counter")
     parser.add_argument("-s","--string",type=str,required=True, help="Sentence to have the number of words counted")
     args = parser.parse_args()
     main(args.string)
-    
