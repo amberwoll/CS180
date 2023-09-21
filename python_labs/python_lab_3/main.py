@@ -4,9 +4,13 @@ import os
 import math
 
 def main(number: int) -> int:
-    # Write the code to sum up cubed numbers here.
-    # Make sure that your terminal output matches the terminal output of the example given on the instructions.
-
+    total = 0
+    init_num = 1
+    for i in range(number):
+        if int((str(init_num**3))[0]) % 2 == 0:
+            total += init_num**3
+        init_num += 1
+    print(total)
     return None
 
 if __name__ == "__main__":
