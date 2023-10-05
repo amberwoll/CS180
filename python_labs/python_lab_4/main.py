@@ -3,7 +3,10 @@ import argparse as ap
 def main(array):
     # Write the compute the variance and the mean of a given list of numbers
     # Make sure that your terminal output matches the terminal output of the example given on the instructions.
+    mean = sum(array) / len(array)
+    variance = sum((x - mean) ** 2 for x in array) / len(array)
 
+    print(f'mean = {mean} \nvariance = {variance}')
     return None
 
 if __name__ == "__main__":
