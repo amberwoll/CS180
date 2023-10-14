@@ -1,10 +1,15 @@
 import argparse
 
 def main(number):
-    # Write the code to determine whether or not a number is a pallindrome here.
-    # Make sure that your terminal output matches the terminal output of the example given on the instructions.
-    
-    return None
+    string_num = str(number)
+    if string_num[0] != string_num[-1]:
+        print("False")
+        return 0
+    elif len(string_num) == (0 or 1):
+        print("True")
+        return 0
+    new_num = int(string_num[1:-1])
+    return main(new_num)
 
 if __name__ == "__main__":
     arg = argparse.ArgumentParser("Pallindrome Checker")
